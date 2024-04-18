@@ -1,13 +1,11 @@
-# Sample Hardhat Project
+# Sample DeFi Project using AAVE protocol
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+1. Deposit Collateral: ETH/WETH (Wrapped ETH).
+2. Borrow another asset: DAI
+3. Repay the DAI
 
-Try running some of the following tasks:
+We'll use Uniswap to exchange tokens: ETH => WETH, etc.
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.ts
-```
+AAVE treats everything as an ERC-20 token, so we use WETH as if it is ETH.
+
+We'll use Scripts to interact with the protocols (AAVE, Uniswap).
