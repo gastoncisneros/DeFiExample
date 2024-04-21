@@ -2,7 +2,7 @@ import { log } from "console";
 import { ethers, network } from "hardhat";
 import { networkConfig } from "../helper.hardhat.config";
 
-const DepositAmount = ethers.parseEther("0.01").toString();
+export const AMOUNT = ethers.parseEther("0.01").toString();
 
 export async function getWeth() {
     const [deployer] = await ethers.getSigners();
@@ -18,7 +18,7 @@ export async function getWeth() {
     );
 
     const txResponse = await iWeth.deposit({
-        value: DepositAmount,
+        value: AMOUNT,
     });
 
     await txResponse.wait(1);
