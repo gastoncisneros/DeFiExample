@@ -46,6 +46,9 @@ async function main() {
     );
 
     await getBorrowUserData(lendingPoolContract, deployer);
+    //#endregion
+
+    //#region Step 3. Repay
     await repay(amountDaiToBorrowWei.toString(), daiTokenAddress, lendingPoolContract, deployer);
     await getBorrowUserData(lendingPoolContract, deployer);
     //#endregion
