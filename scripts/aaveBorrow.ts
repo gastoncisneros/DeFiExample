@@ -6,8 +6,16 @@ import { AggregatorV3Interface, ILendingPool } from "../typechain-types";
 import { networkConfig } from "../helper.hardhat.config";
 
 // Here we'll interact with the AAVE protocol.
-// First we use getWeth to exchange ETH to WETH.
-// AAVE treats everything as an ERC-20 token.
+
+/**
+ * Step1: Deposit Collateral. First we've to deposit some ETH into the WETH token, using the IWeth contract Interface.
+ * Step2: Approve the LendingPool contract to spend some WETH from the WETH token on behalf of the deployer account. For this step,
+ * we use the IERC20 Token for approvals.
+ * Step3: Using the authorized LendinPool Contract, deposit the WETH into AAVE protocol.
+ * Step4: Borrow another asset, in this case, DAI, using the LendingPool contract.
+ * Step5: Repay. Authorize LendingPool Contract to spend DAI from the DAI Token on behalf of the deployer account.
+ */
+
 async function main() {
     //#region Step 1 Deposit Collateral
     await getWeth();
